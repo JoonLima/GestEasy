@@ -1,0 +1,75 @@
+<form (ngSubmit)="salvar()" [formGroup]="cliente" #formDir="ngForm">
+  <div class="cabecalho-cliente">
+    <span>{{ modoEdicao ? "Editar" : "Novo" }} cliente</span>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-1 campo-input">
+      <label>Código</label>
+      <input name="id" formControlName="id" />
+    </div>
+    <div class="col-lg-11 campo-input">
+      <label>Nome</label>
+      <input
+        name="nome"
+        formControlName="nome"
+        [ngClass]="{
+          'input-campo-obrigatorio': nome.invalid && formDir.submitted
+        }"
+      />
+      <div class="campo-obrigatorio" *ngIf="nome.invalid && formDir.submitted">
+        O nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-lg-4 campo-input">
+      <label>CPF / CNPJ</label>
+      <input
+        [ngClass]="{
+          'input-campo-obrigatorio': cpfOuCnpj.invalid && formDir.submitted
+        }"
+        name="cpfOuCnpj"
+        maxlength="14"
+        formControlName="cpfOuCnpj"
+      />
+      <div
+        class="campo-obrigatorio"
+        *ngIf="cpfOuCnpj.invalid && formDir.submitted"
+      >
+        O CPF / CNPJ é obrigatório.
+      </div>
+    </div>
+    <div class="col-lg-4 campo-input">
+      <label>E-mail</label>
+      <input
+        name="email"
+        formControlName="email"
+        [ngClass]="{
+          'input-campo-obrigatorio': email.invalid && formDir.submitted || email.errors?.['email']
+        }"
+      />
+      <div
+        class="campo-obrigatorio"
+        *ngIf="email.errors?.['required'] && formDir.submitted"
+      >
+        O e-mail é obrigatório.
+      </div>
+      <div class="campo-obrigatorio" *ngIf="email.errors?.['email']">
+        Email inválido.
+      </div>
+    </div>
+
+    <div class="col-lg-4 campo-input">
+      <label>Telefone</label>
+      <input formControlName="telefone" name="telefone" maxlength="12" />
+    </div>
+  </div>
+
+  <div class="rodape-acoes">
+    <app-botao-primario [titulo]="tituloBotaoPrimario"></app-botao-primario>
+    <app-botao-secundario
+      [routerLink]="['/clientes']"
+      [titulo]="tituloBotaoSecundario"
+    ></app-botao-secundario>
+  </div>
+</form>

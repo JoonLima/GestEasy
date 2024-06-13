@@ -1,0 +1,87 @@
+<div class="sub-container">
+  <div class="header-sub-container">
+    <div class="titulo-pagina">Clientes</div>
+    <app-botao-primario
+      (click)="novoCliente()"
+      [titulo]="titulo"
+    ></app-botao-primario>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-5">Nome</th>
+        <th scope="col">CPF / CNPJ</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Data cadastro</th>
+        <th scope="col">E-mail</th>
+        <th scope="col-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes$ | async">
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.cpfOuCnpj | mascaraCnpjCpf }}</td>
+        <td>{{ cliente.telefone | formatarTelefone }}</td>
+        <td>{{ cliente.dataCadastro | formatarData }}</td>
+        <td>{{ cliente.email }}</td>
+        <td class="coluna-botoes">
+          <i
+            [routerLink]="'/clientes/editar/' + cliente.id"
+            class="bi bi-pencil"
+          ></i>
+          <i
+            (click)="excluirCliente(cliente.nome, cliente.id)"
+            class="bi bi-trash"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="dropdown">
+    <div class="cards">
+      <app-card
+        *ngFor="let cliente of clientes$ | async"
+        [funcaoExcluir]="excluirCliente"
+      >
+        <div class="campos-card">
+          <div class="campo-card nome">
+            <span class="titulo-campo">Nome</span>
+            <span class="valor-campo"> {{ cliente.nome }} </span>
+          </div>
+          <div class="campo-card">
+            <span class="titulo-campo">CPF / CNPJ</span>
+            <span class="valor-campo">
+              {{ cliente.cpfOuCnpj | mascaraCnpjCpf }}
+            </span>
+          </div>
+          <div class="campo-card">
+            <span class="titulo-campo">Telefone</span>
+            <span class="valor-campo">
+              {{ cliente.telefone | formatarTelefone }}
+            </span>
+          </div>
+          <div class="campo-card">
+            <span class="titulo-campo">Data cadastro</span>
+            <span class="valor-campo">
+              {{ cliente.dataCadastro | formatarData }}
+            </span>
+          </div>
+          <div class="campo-email">
+            <span class="titulo-campo">E-mail</span>
+            <span class="valor-campo"> {{ cliente.email }} </span>
+          </div>
+        </div>
+        <div class="botoes-card">
+          <i
+            [routerLink]="'/clientes/editar/' + cliente.id"
+            class="bi bi-pencil"
+          ></i>
+          <i
+            (click)="excluirCliente(cliente.nome, cliente.id)"
+            class="bi bi-trash"
+          ></i>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</div>

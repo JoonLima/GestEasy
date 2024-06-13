@@ -1,0 +1,22 @@
+<div class="container-dashboard">
+  <div class="container-cards-dashboard">
+    <div class="card-dashboard" data-test="card-total-produtos">
+      <span class="texto">Total de produtos</span>
+      <span class="total">{{ totalProdutos }}</span>
+    </div>
+    <div class="card-dashboard" data-test="card-total-clientes">
+      <span class="texto">Total de clientes</span>
+      <span class="total">{{ totalClientes }}</span>
+    </div>
+  </div>
+  <div class="container-graficos">
+    <div class="grafico">
+      <span>Top 10 produtos com maior estoque</span>
+      <canvas #graficoProdutosMaiorEstoque></canvas>
+    </div>
+    <div class="grafico">
+      <span>Produtos com estoque zerado ou negativo</span>
+      <canvas #graficoProdutosComQuantidadeZerada></canvas>
+    </div>
+  </div>
+</div>

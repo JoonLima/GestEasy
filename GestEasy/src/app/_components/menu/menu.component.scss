@@ -1,0 +1,179 @@
+.menu{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.menu .menu-lateral{
+  width: 50px;
+  height: 100vh;
+  transition: .3s;
+  z-index: 1;
+}
+
+.menu .menu-lateral-aberto{
+  width: 256px;
+}
+
+.menu .menu-mobile-aberto{
+  display: block;
+}
+
+.btn-expandir{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50px;
+  height: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.item-menu{
+  transition: .4s;
+}
+
+.item-menu:hover{
+  background-color: #006969;
+}
+
+.links-menu a{
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 20px 12px;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+
+}
+
+.links-menu a .txt-link{
+  margin-left: 30px;
+}
+
+.links-menu a .icon i{
+  font-size: 25px;
+}
+
+.link-ativo{
+  background-color: #006969;
+}
+
+
+
+.menu-horizontal{
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border-bottom: 2px solid #000;
+
+
+  .usuario-tema{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button{
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+
+      img {
+        width: 35px;
+        border-radius: 50%;
+        border: 1px solid #004F4F;
+      }
+
+
+    .dropdown-menu{
+      transform: translate(1264px, 55px);
+    }
+
+    .usuario{
+      font-weight: 500;
+      font-size: 15px;
+    }
+  }
+
+  .logo{
+  font-size: 27px;
+  padding-left: 60px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .menu .menu-lateral .logo{
+    font-size: 25px;
+    padding-left: 57px;
+    }
+
+}
+
+
+
+/* Estilo para o botão e o contêiner do dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: transparent;
+  height: 100%;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo para o conteúdo do dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Estilo para os links dentro do dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+
+  i{
+    font-size: 20px;
+  }
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Mostrar o dropdown ao passar o mouse sobre o botão */
+.dropdown:hover .dropdown-content {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+
+}
+

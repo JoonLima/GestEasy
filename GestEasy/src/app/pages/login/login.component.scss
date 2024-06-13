@@ -1,0 +1,39 @@
+.form-signin{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 30%;
+  .form-login{
+    display: flex;
+    gap: 2.5rem;
+    flex-direction: column;
+    border-top: 5px solid #004F4F;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+    padding: 30px;
+    margin-top: 35%;
+  }
+}
+
+@media (max-width:1200px) {
+  .form-signin{
+    width: 35%;
+  }
+}
+
+@media (max-width:950px) {
+  .form-signin{
+    width: 45%;
+  }
+}
+
+@media (max-width:700px) {
+  .form-signin{
+    width: 65%;
+  }
+}
+
+
+@media (max-width:600px) {
+  .form-signin{
+    width: 80%;
+  }
+}

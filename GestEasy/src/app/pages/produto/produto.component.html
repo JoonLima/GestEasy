@@ -1,0 +1,65 @@
+<form (ngSubmit)="salvar()" [formGroup]="produto" #formDir="ngForm">
+  <div class="cabecalho-produto">
+    <span>{{ modoEdicao ? "Editar" : "Novo" }} produto</span>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-1 campo-input">
+      <label>Código</label>
+      <input formControlName="id" />
+    </div>
+    <div class="col-lg-11 campo-input">
+      <label>Nome</label>
+      <input
+        maxlength="50"
+        name="nome"
+        formControlName="nome"
+        [ngClass]="{
+          'input-campo-obrigatorio': nome.invalid && formDir.submitted
+        }"
+      />
+      <div class="campo-obrigatorio" *ngIf="nome.invalid && formDir.submitted">
+        O nome é obrigatório.
+      </div>
+    </div>
+    <div class="col-lg-6 campo-input">
+      <label>Estoque</label>
+      <input
+        type="number"
+        maxlength="4"
+        name="quantidadeEstoque"
+        formControlName="quantidadeEstoque"
+      />
+    </div>
+    <div class="col-lg-6 campo-input">
+      <label>Valor</label>
+      <input
+        type="number"
+        maxlength="10"
+        name="valor"
+        formControlName="valor"
+        [ngClass]="{
+          'input-campo-obrigatorio': valor.invalid && formDir.submitted
+        }"
+      />
+      <div class="campo-obrigatorio" *ngIf="valor.invalid && formDir.submitted">
+        O valor é obrigatório.
+      </div>
+    </div>
+    <div class="col-lg-12 campo-input">
+      <label>Observação</label>
+      <textarea
+        name="observacao"
+        rows="5"
+        formControlName="observacao"
+      ></textarea>
+    </div>
+  </div>
+  <div class="rodape-acoes">
+    <app-botao-primario [titulo]="tituloBotaoPrimario"></app-botao-primario>
+    <app-botao-secundario
+      [routerLink]="['/produtos']"
+      [titulo]="tituloBotaoSecundario"
+    ></app-botao-secundario>
+  </div>
+</form>

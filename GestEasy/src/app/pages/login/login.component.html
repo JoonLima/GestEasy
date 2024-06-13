@@ -1,0 +1,78 @@
+<main class="form-signin m-auto">
+  <form
+    (ngSubmit)="login()"
+    class="form-login"
+    [formGroup]="momentForm"
+    #formDir="ngForm"
+  >
+    <h1 class="h3 mb-3 fw-normal m-auto">GestEasy</h1>
+
+    <div class="form-floating">
+      <input
+        [ngClass]="{
+          'input-campo-obrigatorio': email.invalid && formDir.submitted || email.errors?.['email']
+        }"
+        [(ngModel)]="emailUsuario"
+        type="email"
+        class="form-control"
+        name="input-email"
+        id="floatingInput"
+        placeholder="name@example.com"
+        formControlName="email"
+        data-test="input-email"
+      />
+      <div
+        data-test="campo-email-obrigatorio"
+        class="campo-obrigatorio"
+        *ngIf="email.errors?.['required'] && formDir.submitted"
+      >
+        O e-mail é obrigatório.
+      </div>
+      <div
+        data-test="campo-email-invalido"
+        class="campo-obrigatorio"
+        *ngIf="email.errors?.['email']"
+      >
+        Email inválido.
+      </div>
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input
+        [ngClass]="{
+          'input-campo-obrigatorio': senha.invalid && formDir.submitted
+        }"
+        [(ngModel)]="senhaUsuario"
+        type="password"
+        class="form-control"
+        name="input-senha"
+        id="floatingPassword"
+        placeholder="Password"
+        formControlName="senha"
+        data-test="input-senha"
+      />
+      <div
+        data-test="campo-senha-obrigatoria"
+        class="campo-obrigatorio"
+        *ngIf="senha.invalid && formDir.submitted"
+      >
+        A senha é obrigatória.
+      </div>
+      <label for="floatingPassword">Senha</label>
+    </div>
+    <button
+      data-test="button-entrar"
+      class="botao btn-primario w-100 py-2"
+      type="submit"
+    >
+      <div
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <span *ngIf="!loading"> Entrar </span>
+    </button>
+  </form>
+</main>

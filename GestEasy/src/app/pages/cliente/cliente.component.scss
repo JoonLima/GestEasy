@@ -1,0 +1,22 @@
+.cabecalho-cliente{
+  padding: 10px 0px;
+
+  span{
+    font-size: 20px;
+
+  }
+}
+
+.rodape-acoes{
+  margin-top: 27.5%;
+}
+
+@media (max-width:700px) {
+  .rodape-acoes{
+    margin-top: 35%;
+  }
+}
+
+
+
+

@@ -1,0 +1,542 @@
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$light-primary: mat.define-palette(mat.$blue-gray-palette);
+$light-secondary: mat.define-palette(mat.$indigo-palette);
+
+$dark-primary: mat.define-palette(mat.$gray-palette, 50);
+$dark-secondary: mat.define-palette(mat.$blue-palette);
+
+$light-theme: mat.define-light-theme((
+  color: (
+    theme-type: light,
+    primary: $light-primary,
+    accent: $light-secondary,
+  )
+));
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    theme-type: dark,
+    primary: $dark-primary,
+    accent: $dark-secondary,
+  )
+));
+
+body.light-theme {
+  background-color: #fff;
+
+  .swal2-modal {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .container{
+    background-color: #FFF;
+  }
+  .menu .menu-lateral{
+    background-color: #004F4F;
+    border-right: 2px solid #000;
+    color: #fff
+  }
+
+  .btn-primario{
+    background-color: #004F4F;
+    color: #fff
+  }
+
+  .btn-secundario{
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #004F4F;
+  }
+
+
+  .botao:hover{
+    background-color: #006969
+  }
+
+  .titulo-pagina{
+    color: #000000a9;
+  }
+
+  .cards{
+    .card{
+      border: 1px solid #000;
+
+      .campo-card{
+        .titulo-campo{
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+    }
+
+  }
+
+  .sub-container {
+    .table{
+      .coluna-botoes{
+        i{
+          color: #004F4F;
+          cursor: pointer;
+        }
+
+        i:hover{
+          color: #006969;
+        }
+      }
+    }
+  }
+
+}
+
+body.dark-theme{
+  background-color: #121212;
+
+  .swal2-modal {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+
+  .usuario-tema span{
+    color: #fff;
+  }
+
+  .cabecalho-cliente{
+    span{
+      color: #ECEFF1;
+    }
+  }
+
+  .cabecalho-produto{
+    span{
+      color: #ECEFF1;
+    }
+  }
+
+  .container{
+    background-color: #121212;
+  }
+
+  .menu .menu-lateral{
+    background-color: #121212;
+    border-right: 2px solid #fff;
+    color: #fff
+  }
+
+  .menu-horizontal{
+    background-color: #343A40;
+    border-bottom: 2px solid #fff;
+    color: #fff
+  }
+  .row .campo-input{
+    color: #fff;
+
+
+    input{
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  .btn-primario{
+    background-color: #004F4F;
+    color: #fff
+  }
+
+  .btn-secundario{
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #004F4F;
+  }
+
+  .botao:hover{
+    background-color: #006969;
+  }
+
+  .titulo-pagina{
+    color: #ECEFF1;
+  }
+
+  .cards{
+      color: #fff;
+
+      .cabecalho-card{
+        background-color: #61606069;
+      }
+
+      .card{
+        border: 1px solid #fff;
+        color: #fff;
+      }
+
+    .acoes-card{
+      display: flex;
+
+
+
+    }
+}
+
+.sub-container {
+  .table{
+    tbody{
+      background-color: #1F1F1F;
+      color: #fff;
+    }
+
+    .coluna-botoes{
+      i{
+        color: #fff;
+        cursor: pointer;
+      }
+
+      i:hover{
+        color: #006969;
+      }
+    }
+  }
+}
+
+.botoes-header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .botao-pdf{
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: transparent;
+    transition: .3s;
+    i{
+      font-size: 20px;
+    }
+  }
+
+  .botao-pdf:hover{
+    background-color: #004F4F;
+    color: #fff;
+  }
+}
+
+.container-cards-dashboard{
+  .card-dashboard{
+    color: #fff;
+  }
+}
+
+.container-graficos{
+ color: #fff;
+}
+}
+
+/* Barra de rolagem inteira */
+::-webkit-scrollbar {
+  width: 6px; /* Largura da barra de rolagem vertical */
+  height: 6px; /* Altura da barra de rolagem horizontal */
+}
+
+/* Parte de fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Parte da barra de rolagem que se move */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #888;
+}
+
+/* Parte da barra de rolagem que se move ao passar o mouse por cima */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+html, body { height: 90%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.botao{
+  width: 145px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: none;
+
+  .btn-primario{
+    border: 1px solid #004F4F;
+  }
+
+  .btn-secundario{
+    background-color: transparent;
+  }
+
+}
+
+.titulo-pagina{
+  font-weight: 500;
+  font-size: 20px;
+  padding: 15px 0px;
+}
+
+.campo-input{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label{
+  font-size: 15px;
+  font-weight: 500;
+}
+input{
+  height: 40px;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  border-bottom: 1px solid #000;
+  background-color: #8888881a;
+  font-size: 16px;
+}
+
+textarea{
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  border-bottom: 1px solid #000;
+  background-color: #8888881a;
+  font-size: 16px;
+}
+
+.rodape-acoes{
+  display: flex;
+  gap: 20px;
+  margin-top: 11%;
+  margin-bottom: 20px;
+  margin-right: 100px;
+  padding-top: 10px;
+  width: 100%;
+  justify-content: flex-end;
+  border-top: 1px solid #55555554;
+}
+
+.sub-container {
+  .table{
+    margin-top: 20px;
+    .coluna-botoes{
+      display: flex;
+      gap: 15px;
+
+      i{
+        font-size: 19px;
+      }
+    }
+  }
+
+  .botoes-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .botao-pdf{
+      color: #004F4F;
+      border: 1px solid #004F4F;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background-color: transparent;
+      transition: .3s;
+      i{
+        font-size: 20px;
+      }
+    }
+
+    .botao-pdf:hover{
+      background-color: #004F4F;
+      color: #fff;
+    }
+  }
+}
+
+.cards{
+  display: none;
+}
+
+@media (max-width: 992px) {
+
+  .container{
+    min-width: 100%;
+  }
+
+  .rodape-acoes{
+    margin-bottom: 20px;
+    margin-right: 150px;
+    margin-top: 0;
+    width: 100%;
+    justify-content: center;
+
+    .botao{
+      width: 160px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+
+      .btn-primario{
+        border: 1px solid #004F4F;
+      }
+
+      .btn-secundario{
+        background-color: transparent;
+      }
+    }
+  }
+
+  .cards{
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+    .mat-mdc-card{
+      position: static;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0px;
+      align-items: center;
+    }
+
+    .card{
+      justify-content: space-between;
+      border-radius: 3%;
+      display: flex;
+      flex-direction: row;
+      margin-top: 15px;
+      border: 1px solid #000;
+      padding-top: 10px;
+      margin-bottom: 10px;
+
+      .campos-card{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 25px;
+        font-size: 15px;
+        width: 100%;
+        justify-content: space-between;
+
+        .campo-card{
+          .titulo-campo{
+            font-weight: bold;
+            font-size: 13px;
+          }
+        }
+      }
+
+
+      .botoes-card{
+        display: flex;
+        gap: 100px;
+        margin-top: 15px;
+        padding-top: 5px;
+        justify-content: center;
+        border-top: 1px solid #888;
+
+        i{
+          font-size: 22px;
+          margin-top: 5px;
+          cursor: pointer;
+        }
+
+      }
+
+      .mat-mdc-card-content{
+        padding-top: 0;
+      }
+
+      .conteudo-card{
+        display: flex;
+        flex-direction: column;
+
+
+        .campo-card{
+          display: flex;
+          flex-direction: column;
+          width: 120px;
+
+           .valor-campo{
+            font-size: 15px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  .sub-container {
+    .table{
+      display: none;
+    }
+  }
+
+  .menu-horizontal{
+    .usuario-tema{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+
+      button{
+        display: flex;
+        align-items: center;
+        gap: 1px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 700px){
+
+  .rodape-acoes{
+    justify-content: center;
+    margin-right: 25px;
+
+  }
+
+  .container-login{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+
+}
+
+
+.table-light-2{
+  color: #000;
+}
+
+.campo-obrigatorio{
+  color: rgba(255, 0, 0, 0.692);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.input-campo-obrigatorio{
+  border-color: rgba(255, 0, 0, 0.692);
+}
+
+

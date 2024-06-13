@@ -1,0 +1,84 @@
+<div class="sub-container">
+  <div class="header-sub-container">
+    <div class="titulo-pagina">Produtos</div>
+    <div class="botoes-header">
+      <app-botao-primario
+        [titulo]="tituloBotaoAdicionar"
+        [routerLink]="['/produtos/novo']"
+      ></app-botao-primario>
+      <button class="botao-pdf" (click)="gerarPDF()">
+        <i class="bi bi-filetype-pdf"></i>
+        <span>Gerar PDF</span>
+      </button>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-5">Nome</th>
+        <th scope="col">Estoque</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Data cadastro</th>
+        <th scope="col">Observação</th>
+        <th scope="col-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.quantidadeEstoque }}</td>
+        <td>{{ produto.valor | formatarReal }}</td>
+        <td>{{ produto.dataCadastro | formatarData }}</td>
+        <td>{{ produto.observacao }}</td>
+        <td class="coluna-botoes">
+          <i
+            [routerLink]="'/produtos/editar/' + produto.id"
+            class="bi bi-pencil"
+          ></i>
+          <i
+            (click)="excluirProduto(produto.nome, produto.id)"
+            class="bi bi-trash"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="cards">
+    <app-card *ngFor="let produto of produtos">
+      <div class="campos-card">
+        <div class="campo-card nome">
+          <span class="titulo-campo">Nome</span>
+          <span class="valor-campo"> {{ produto.nome }} </span>
+        </div>
+        <div class="campo-card">
+          <span class="titulo-campo">Estoque</span>
+          <span class="valor-campo"> {{ produto.quantidadeEstoque }} </span>
+        </div>
+        <div class="campo-card">
+          <span class="titulo-campo">Valor</span>
+          <span class="valor-campo"> {{ produto.valor | formatarReal }} </span>
+        </div>
+        <div class="campo-card">
+          <span class="titulo-campo">Data cadastro</span>
+          <span class="valor-campo">
+            {{ produto.dataCadastro | formatarData }}
+          </span>
+        </div>
+        <div class="campo-observacao">
+          <span class="titulo-campo">Observação</span>
+          <span class="valor-campo"> {{ produto.observacao }} </span>
+        </div>
+      </div>
+      <div class="botoes-card">
+        <i
+          [routerLink]="'/produtos/editar/' + produto.id"
+          class="bi bi-pencil"
+        ></i>
+        <i
+          (click)="excluirProduto(produto.nome, produto.id)"
+          class="bi bi-trash"
+        ></i>
+      </div>
+    </app-card>
+  </div>
+</div>

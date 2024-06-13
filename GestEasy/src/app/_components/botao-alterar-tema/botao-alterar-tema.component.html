@@ -1,0 +1,9 @@
+<button
+  class="btn-tema"
+  (click)="alterarTema()"
+  mat-icon-button
+  color="primary"
+>
+  <i *ngIf="!darkTheme" class="bi bi-brightness-high"></i>
+  <i *ngIf="darkTheme" class="bi bi-moon"></i>
+</button>

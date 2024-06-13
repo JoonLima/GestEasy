@@ -1,0 +1,25 @@
+.campo-observacao{
+  width: 150;
+  display: flex;
+  flex-direction: column;
+
+  .titulo-campo{
+    font-weight: bold;
+    font-size: 13px;
+    display: none;
+  }
+
+}
+
+@media (max-width: 1030px){
+  .campo-observacao{
+    width: 100%;
+
+    .titulo-campo{
+      display: block;
+    }
+  }
+
+
+
+}
